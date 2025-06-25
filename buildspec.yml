@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 842675987532.dkr.ecr.us-west-1.amazonaws.com
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t nodejs-hello-ecs .
+      - docker tag nodejs-hello-ecs:latest 842675987532.dkr.ecr.us-west-1.amazonaws.com/nodejs-hello-ecs:latest
+  post_build:
+    commands:
+      - echo Pushing the Docker image to ECR...
+      - docker push 842675987532.dkr.ecr.us-west-1.amazonaws.com/nodejs-hello-ecs:latest
+      - printf '[{"name":"nodejs-container","imageUri":"%s"}]' 842675987532.dkr.ecr.us-west-1.amazonaws.com/nodejs-hello-ecs:latest > imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json
