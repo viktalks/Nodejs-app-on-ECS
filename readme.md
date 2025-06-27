@@ -22,8 +22,7 @@ nodejs-hello-ecs/
 
 Before starting, ensure you have:
 
-- AWS account with IAM permissions for:
-  - ECR, ECS, CodeBuild, CodePipeline, CloudWatch
+- AWS account with IAM permissions
 - AWS CLI installed and configured
 - Docker installed and running
 - Git + GitHub account
@@ -43,8 +42,7 @@ Provide:
 
 - Access Key ID  
 - Secret Access Key  
-- Region (e.g., `ap-south-1`)  
-- Output format (`json` recommended)
+- Region (e.g., `us-west-1`)  
 
 ---
 
