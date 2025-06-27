@@ -234,5 +234,5 @@ This project is licensed under the **MIT License**.
 
 ## 🙌 Author
 
-**Nikhil Rajpoot**  
+**Vikas Tyagi**  
 Feel free to fork or submit issues/pull requests for improvements.
